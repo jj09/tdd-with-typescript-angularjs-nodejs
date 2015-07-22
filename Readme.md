@@ -2,31 +2,35 @@
 
 Code samples from presentation 
 
-http://jj09.net/building-large-scale-web-applications-with-typescript
+http://jj09.net/tdd-with-typescript-angularjs-and-node-js/
 
-# installation
+Website
+
+http://tddvoting.azurewebsites.net/
+
+## installation
 
     npm install
     tsd reinstall
 
-# continuous compilation and server side tests running
+## continuous compilation and server side tests running
 
     gulp
 
-# running node tests with mocha
+## running node tests with mocha
 
     mocha
     gulp test
     
-# running AngularJS tests with Karma and Jasmine
+## running AngularJS tests with Karma and Jasmine
 
     karma start
     
-# running web app
+## running web app
 
     node server.js
     
-# running end to end tests with Protractor
+## running end to end tests with Protractor
 
     webdriver-manager update 
     webdriver-manager start
