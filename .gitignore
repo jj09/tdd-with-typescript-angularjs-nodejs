@@ -1,0 +1,19 @@
+# Created by https://www.gitignore.io
+
+### Node ###
+# Logs
+logs
+*.log
+
+# Dependency directory
+# https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
+node_modules
+
+# bower
+public/lib
+
+# tsd
+typings
+
+# ignore .js.map files
+*.js.map

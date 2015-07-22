@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="voting">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap-theme.min.css">
+        <title>Voting</title>
+    </head>
+    <body>
+        <div class="container" style="text-align: center">
+
+            <img src="http://www.manageroftheyear.org/wp-content/uploads/2012/07/icon_vote.gif" alt="voting" /> 
+
+            <div id="votes" style="font-size: 48px" ng-controller="votingController as vc">
+                <ul ng-repeat="vote in votes track by $index" class="nav nav-pills nav-stacked">
+                    <li role="presentation"><a href="#" ng-click="vc.vote($index)">{{vote.label}} ({{vote.votes}})</a></li>
+                </ul>
+            </div>
+        </div>                         
+
+        <script src="lib/jquery/dist/jquery.min.js"></script>
+        <script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="lib/angular/angular.min.js"></script>
+        <script src="app/app.js"></script>
+        <script src="app/VotingService.js"></script>
+        <script src="app/VotingController.js"></script>
+    </body>
+</html>
