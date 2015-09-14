@@ -13,7 +13,7 @@ http://tddvoting.azurewebsites.net/
     npm install
     tsd reinstall
 
-## continuous compilation and server side tests running
+## continuous compilation, server side tests running (mocha), and client side tests running (karma and jasmine) 
 
     gulp
 
