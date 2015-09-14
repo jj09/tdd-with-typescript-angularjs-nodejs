@@ -1,10 +1,8 @@
 /// <reference path='../../../typings/angularjs/angular-mocks.d.ts' />
 /// <reference path='../../../typings/jasmine/jasmine.d.ts' />
-/// <reference path='../votingService.ts' />
 /// <reference path='../votingController.ts' />
 
 describe('VotingController', () => {
-	var votingService: Voting.IVotingService;
 	var $rootScope;
 	var scope;
 	var $httpBackend;
@@ -14,13 +12,12 @@ describe('VotingController', () => {
 
 	beforeEach(angular.mock.module('voting'));
 
-	beforeEach(inject((_$httpBackend_, _votingService_, $rootScope) => {
+	beforeEach(inject((_$httpBackend_, $rootScope) => {
 		$httpBackend = _$httpBackend_;
-		votingService = _votingService_;
 		scope = $rootScope.$new();		
 	}));
 
-	it('Should get votes from service', inject(($controller) => {
+	it('Should get votes', inject(($controller) => {
 	  // Arrange
 	  var expectedResult = [{label: "Awesome", votes: 0}, {label: "Ok", votes: 0}, {label: "Bad", votes: 0}];
 	  $httpBackend
@@ -29,8 +26,7 @@ describe('VotingController', () => {
 	
 	  // Act
 	  ctrl = $controller('votingController', {
-	    $scope: scope,
-	    votingService: votingService
+	    $scope: scope
 	  });		
 	  $httpBackend.flush();		
 	
@@ -44,8 +40,7 @@ describe('VotingController', () => {
 	    .expectGET(getVotesUrl)
 	    .respond(200, [{ label: "Awesome", votes: 0 }, { label: "Ok", votes: 0 }, { label: "Bad", votes: 0 }]); 
 	  ctrl = $controller('votingController', {
-	    $scope: scope,
-	    votingService: votingService
+	    $scope: scope
 	  });
 	
 	  var expectedResult = [{ label: "Awesome", votes: 0 }, { label: "Ok", votes: 1 }, { label: "Bad", votes: 0 }];
@@ -59,7 +54,7 @@ describe('VotingController', () => {
 	  $httpBackend.flush();
 	
 	  // Assert
-      expect(scope.votes).toEqual(expectedResult);
+	      expect(scope.votes).toEqual(expectedResult);
 	}));
 	
 	

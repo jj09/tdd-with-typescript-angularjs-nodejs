@@ -17,7 +17,6 @@ module.exports = function(config) {
         'public/lib/angular/angular.js',
         'public/lib/angular-mocks/angular-mocks.js',
         'public/app/app.js',
-        'public/app/VotingService.js',
         'public/app/VotingController.js',
         'public/app/test/*.js'
     ],

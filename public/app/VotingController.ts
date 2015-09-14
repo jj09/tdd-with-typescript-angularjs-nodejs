@@ -1,36 +1,36 @@
 /// <reference path="../../typings/angularjs/angular-mocks.d.ts" />
-/// <reference path="VotingService.ts" />
-
+/// <reference path="app.ts" />
 
 module Voting {
-	'use strict';	
+	'use strict';
 
 	class VotingController {
 		private scope: ng.IScope;
-		private votingService: Voting.IVotingService;		
+		private http: ng.IHttpService;
 
-		constructor($scope: ng.IScope, votingService: Voting.IVotingService) {
+		constructor($scope: ng.IScope, $http: ng.IHttpService) {
 			this.scope = $scope;
-			this.votingService = votingService;
+			this.http = $http;
 			this.getVotes();
 		}
 
 		vote(index: number): void {
-			this.votingService.vote(index, (data) => {
+			this.http.post('/api/vote/' + index, null).success(data => {
 				this.scope['votes'] = data;
-			});
+			})
 		}
 
 		getVotes(): void {
-			this.votingService.getVotes((data) => {
+			this.http.get('/api/getVotes').success((data) => {
 				this.scope['votes'] = data;
-			});
-		}		
+			})
+		}
 	}
 
 	getModule().controller('votingController', [
 		'$scope', 
-		'votingService', 
-		($scope, votingService) => new VotingController($scope, votingService)
+		'$http', 
+		($scope, $http) => new VotingController($scope, $http)
 	]);
 }
+

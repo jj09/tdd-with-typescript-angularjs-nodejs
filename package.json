@@ -1,37 +1,35 @@
 {
-  "name": "voting",
+  "name": "voting-app",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "index.html",
   "scripts": {
     "postinstall": "node node_modules/bower/bin/bower install",
     "test": "mocha"
   },
-  "author": "jj",
+  "author": "jj09",
   "license": "MIT",
   "devDependencies": {
-    "chai": "^3.0.0",
+    "chai": "^3.2.0",
     "gulp": "^3.9.0",
-    "gulp-mocha": "^2.1.2",
-    "gulp-typescript": "^2.7.8",
+    "gulp-mocha": "^2.1.3",
+    "gulp-typescript": "^2.8.2",
     "gulp-util": "^3.0.6",
-    "gulp-watch": "^4.2.4",
-    "jasmine": "^2.3.1",
-    "jasmine-core": "^2.3.4",
-    "karma": "^0.12.37",
+    "gulp-watch": "^4.3.5",
+    "jasmine": "^2.3.2",
+    "karma": "^0.13.9",
     "karma-firefox-launcher": "^0.1.6",
     "karma-ie-launcher": "^0.2.0",
     "karma-jasmine": "^0.3.6",
-    "karma-phantomjs-launcher": "^0.2.0",
-    "mocha": "^2.2.5",
+    "karma-phantomjs-launcher": "~0.1",
+    "mocha": "^2.3.2",
     "phantomjs": "^1.9.17",
-    "protractor": "^2.1.0",
-    "run-sequence": "^1.1.1",
-    "tsd": "^0.6.3"
+    "run-sequence": "^1.1.2",
+    "tsd": "^0.6.4"
   },
   "dependencies": {
-    "body-parser": "^1.13.1",
-    "bower": "^1.4.1",
-    "express": "^4.13.0"
+    "body-parser": "^1.13.3",
+    "bower": "^1.5.2",
+    "express": "^4.13.3"
   }
 }

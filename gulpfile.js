@@ -2,7 +2,13 @@ var gulp = require('gulp'),
     util = require('gulp-util'),
     tsc = require('gulp-typescript'),
     mocha = require('gulp-mocha'),
-    runSequence = require('run-sequence');
+    runSequence = require('run-sequence'),
+    Server = require('karma').Server;
+
+function handleError(err) {
+  console.log(err.toString());
+  this.emit('end');
+}
 
 gulp.task('compile-ts', ['compile-server', 'compile-client', 'compile-protractor']);
 
@@ -40,15 +46,22 @@ gulp.task('test', function () {
     return gulp.src('./test/*.js', { read: false })
         // gulp-mocha needs filepaths so you can't have any plugins before it
         .pipe(mocha({ reporter: 'spec' }))
-        .on('error', util.log);
+        .on('error', handleError);
+});
+
+gulp.task('karma', function (done) {
+  new Server({
+    configFile: __dirname + '/karma.conf.js',
+    singleRun: true
+  }, done).start();
 });
 
 gulp.task('watch', function () {
     gulp.watch(['./**/*.ts'], function () {
-        runSequence('compile-ts', 'test');
+        runSequence('compile-ts', 'test', 'karma');
     });
 });
 
 gulp.task('default', function () {
-    runSequence('compile-ts', 'test', 'watch');
-});
+    runSequence('compile-ts', 'test', 'karma', 'watch');
+  });

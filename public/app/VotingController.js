@@ -1,23 +1,23 @@
 /// <reference path="../../typings/angularjs/angular-mocks.d.ts" />
-/// <reference path="VotingService.ts" />
+/// <reference path="app.ts" />
 var Voting;
 (function (Voting) {
     'use strict';
     var VotingController = (function () {
-        function VotingController($scope, votingService) {
+        function VotingController($scope, $http) {
             this.scope = $scope;
-            this.votingService = votingService;
+            this.http = $http;
             this.getVotes();
         }
         VotingController.prototype.vote = function (index) {
             var _this = this;
-            this.votingService.vote(index, function (data) {
+            this.http.post('/api/vote/' + index, null).success(function (data) {
                 _this.scope['votes'] = data;
             });
         };
         VotingController.prototype.getVotes = function () {
             var _this = this;
-            this.votingService.getVotes(function (data) {
+            this.http.get('/api/getVotes').success(function (data) {
                 _this.scope['votes'] = data;
             });
         };
@@ -25,7 +25,7 @@ var Voting;
     })();
     Voting.getModule().controller('votingController', [
         '$scope',
-        'votingService',
-        function ($scope, votingService) { return new VotingController($scope, votingService); }
+        '$http',
+        function ($scope, $http) { return new VotingController($scope, $http); }
     ]);
 })(Voting || (Voting = {}));
