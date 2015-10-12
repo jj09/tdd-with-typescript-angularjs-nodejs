@@ -1,9 +1,9 @@
-var gulp = require('gulp'),
-    util = require('gulp-util'),
-    tsc = require('gulp-typescript'),
-    mocha = require('gulp-mocha'),
-    runSequence = require('run-sequence'),
-    Server = require('karma').Server;
+var gulp = require('gulp');
+var util = require('gulp-util');
+var tsc = require('gulp-typescript');
+var mocha = require('gulp-mocha');
+var runSequence = require('run-sequence');
+var Server = require('karma').Server;
 
 function handleError(err) {
   console.log(err.toString());
@@ -53,7 +53,9 @@ gulp.task('karma', function (done) {
   new Server({
     configFile: __dirname + '/karma.conf.js',
     singleRun: true
-  }, done).start();
+  }, function() {
+        done();
+  }).start();
 });
 
 gulp.task('watch', function () {
@@ -64,4 +66,4 @@ gulp.task('watch', function () {
 
 gulp.task('default', function () {
     runSequence('compile-ts', 'test', 'karma', 'watch');
-  });
+});

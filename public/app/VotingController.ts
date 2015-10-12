@@ -21,15 +21,15 @@ module Voting {
 		}
 
 		getVotes(): void {
-			this.http.get('/api/getVotes').success((data) => {
+			this.http.get('/api/getVotes').success(data => {
 				this.scope['votes'] = data;
-			})
+			});
 		}
 	}
 
 	getModule().controller('votingController', [
-		'$scope', 
-		'$http', 
+		'$scope',
+		'$http',
 		($scope, $http) => new VotingController($scope, $http)
 	]);
 }

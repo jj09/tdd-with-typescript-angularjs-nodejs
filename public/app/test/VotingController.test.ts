@@ -14,48 +14,48 @@ describe('VotingController', () => {
 
 	beforeEach(inject((_$httpBackend_, $rootScope) => {
 		$httpBackend = _$httpBackend_;
-		scope = $rootScope.$new();		
+		scope = $rootScope.$new();
 	}));
 
 	it('Should get votes', inject(($controller) => {
-	  // Arrange
-	  var expectedResult = [{label: "Awesome", votes: 0}, {label: "Ok", votes: 0}, {label: "Bad", votes: 0}];
-	  $httpBackend
-	    .expectGET(getVotesUrl)
-	    .respond(200, expectedResult);
+		// Arrange
+		var expectedResult = [{ label: "Awesome", votes: 0 }, { label: "Ok", votes: 0 }, { label: "Bad", votes: 0 }];
+		$httpBackend
+			.expectGET(getVotesUrl)
+			.respond(200, expectedResult);
 	
-	  // Act
-	  ctrl = $controller('votingController', {
-	    $scope: scope
-	  });		
-	  $httpBackend.flush();		
+		// Act
+		ctrl = $controller('votingController', {
+			$scope: scope
+		});
+		$httpBackend.flush();		
 	
-	  // Assert
-	  expect(scope.votes).toEqual(expectedResult);
+		// Assert
+		expect(scope.votes).toEqual(expectedResult);
 	}));
 
 	it('Should vote', inject(($controller) => {
-	  // Arrange
-	  $httpBackend
-	    .expectGET(getVotesUrl)
-	    .respond(200, [{ label: "Awesome", votes: 0 }, { label: "Ok", votes: 0 }, { label: "Bad", votes: 0 }]); 
-	  ctrl = $controller('votingController', {
-	    $scope: scope
-	  });
+		// Arrange
+		$httpBackend
+			.expectGET(getVotesUrl)
+			.respond(200, [{ label: "Awesome", votes: 0 }, { label: "Ok", votes: 0 }, { label: "Bad", votes: 0 }]);
+		ctrl = $controller('votingController', {
+			$scope: scope
+		});
+
+		var expectedResult = [{ label: "Awesome", votes: 0 }, { label: "Ok", votes: 1 }, { label: "Bad", votes: 0 }];
+
+		$httpBackend
+			.expectPOST(voteUrl + '/1', null)
+			.respond(200, expectedResult);
 	
-	  var expectedResult = [{ label: "Awesome", votes: 0 }, { label: "Ok", votes: 1 }, { label: "Bad", votes: 0 }];
+		// Act		
+		ctrl.vote(1);
+		$httpBackend.flush();
 	
-	  $httpBackend
-	    .expectPOST(voteUrl + '/1', null)
-	    .respond(200, expectedResult);
-	
-	  // Act		
-	  ctrl.vote(1);
-	  $httpBackend.flush();
-	
-	  // Assert
-	      expect(scope.votes).toEqual(expectedResult);
+		// Assert
+		expect(scope.votes).toEqual(expectedResult);
 	}));
-	
-	
+
+
 });

@@ -6,40 +6,40 @@
   "bundle": "typings/tsd.d.ts",
   "installed": {
     "mocha/mocha.d.ts": {
-      "commit": "7a3ca1f0b8a0960af9fc1838f3234cc9d6ce0645"
-    },
-    "chai/chai.d.ts": {
-      "commit": "7a3ca1f0b8a0960af9fc1838f3234cc9d6ce0645"
-    },
-    "express/express.d.ts": {
-      "commit": "7a3ca1f0b8a0960af9fc1838f3234cc9d6ce0645"
+      "commit": "3fc1377ce29dd9670975cb68615edf1b819fc4a5"
     },
     "node/node.d.ts": {
-      "commit": "7a3ca1f0b8a0960af9fc1838f3234cc9d6ce0645"
+      "commit": "3fc1377ce29dd9670975cb68615edf1b819fc4a5"
+    },
+    "chai/chai.d.ts": {
+      "commit": "3fc1377ce29dd9670975cb68615edf1b819fc4a5"
+    },
+    "express/express.d.ts": {
+      "commit": "3fc1377ce29dd9670975cb68615edf1b819fc4a5"
     },
     "mime/mime.d.ts": {
-      "commit": "7a3ca1f0b8a0960af9fc1838f3234cc9d6ce0645"
+      "commit": "3fc1377ce29dd9670975cb68615edf1b819fc4a5"
     },
     "serve-static/serve-static.d.ts": {
-      "commit": "7a3ca1f0b8a0960af9fc1838f3234cc9d6ce0645"
-    },
-    "angularjs/angular.d.ts": {
-      "commit": "7a3ca1f0b8a0960af9fc1838f3234cc9d6ce0645"
-    },
-    "angularjs/angular-mocks.d.ts": {
-      "commit": "7a3ca1f0b8a0960af9fc1838f3234cc9d6ce0645"
+      "commit": "3fc1377ce29dd9670975cb68615edf1b819fc4a5"
     },
     "jasmine/jasmine.d.ts": {
-      "commit": "7a3ca1f0b8a0960af9fc1838f3234cc9d6ce0645"
+      "commit": "3fc1377ce29dd9670975cb68615edf1b819fc4a5"
+    },
+    "angularjs/angular-mocks.d.ts": {
+      "commit": "3fc1377ce29dd9670975cb68615edf1b819fc4a5"
+    },
+    "angularjs/angular.d.ts": {
+      "commit": "3fc1377ce29dd9670975cb68615edf1b819fc4a5"
     },
     "jquery/jquery.d.ts": {
-      "commit": "7a3ca1f0b8a0960af9fc1838f3234cc9d6ce0645"
+      "commit": "3fc1377ce29dd9670975cb68615edf1b819fc4a5"
     },
     "angular-protractor/angular-protractor.d.ts": {
-      "commit": "7a3ca1f0b8a0960af9fc1838f3234cc9d6ce0645"
+      "commit": "3fc1377ce29dd9670975cb68615edf1b819fc4a5"
     },
     "selenium-webdriver/selenium-webdriver.d.ts": {
-      "commit": "7a3ca1f0b8a0960af9fc1838f3234cc9d6ce0645"
+      "commit": "3fc1377ce29dd9670975cb68615edf1b819fc4a5"
     }
   }
 }
